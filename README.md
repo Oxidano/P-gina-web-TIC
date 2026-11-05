@@ -1,9 +1,0 @@
-# P-gina-web-TIC
-<!DOCTYPE html>
-<html>
-<title>Página web de Marina</title>
-<body>
-  <h1>Contenidos de la página</h1>
-  <p>Aún por definir.</p>
-</body>
-</html>
