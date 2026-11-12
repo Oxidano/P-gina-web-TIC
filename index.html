@@ -1,11 +1,47 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-  <link rel="stylesheet" href="style.css">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bienvenido a mi página web</title>
+<style>
+  :root { --lado: 200px; } /* Lado de cada casilla; la letra se adapta sola */
+  body { font-family: Arial, Helvetica, sans-serif; margin: 0; padding: 30px 20px; text-align: center; }
+  h1 { font-size: 60px; font-weight: bold; color: #00088F; margin: 0 0 10px; }
+  h2 { font-size: 30px; font-weight: bold; color: #00CBFF; margin: 0 0 30px; }
+  .menu { display: grid; grid-template-columns: repeat(3, var(--lado)); grid-template-rows: repeat(2, var(--lado)); gap: 10px; justify-content: center; }
+  .menu a { box-sizing: border-box; width: var(--lado); height: var(--lado); padding: 6px; display: flex; align-items: center; justify-content: center; text-align: center; text-decoration: none; font-weight: bold; font-size: calc(var(--lado) * 0.095); overflow-wrap: anywhere; color: #00088F; background: #e8f9ff; border: 2px solid #00CBFF; }
+  .menu a:hover { background: #00CBFF; color: #fff; }
+
+  /* Subpáginas: ocultas salvo la que coincide con la dirección (#...) */
+  .sub { display: none; text-align: left; }
+  .sub:target { display: block; }
+  body:has(.sub:target) #inicio { display: none; }
+</style>
 </head>
-<title>Página web de Marina</title>
 <body>
-  <h1>Contenidos de la página</h1>
-  <p>Aún por definir.</p>
+
+  <!-- PÁGINA PRINCIPAL -->
+  <main id="inicio">
+    <h1>Bienvenido a mi página web</h1>
+    <h2>Ver en esta página:</h2>
+    <nav class="menu">
+      <a href="#sobre-mi">Sobre mí</a>
+      <a href="#sobre-la-pagina">Sobre la página</a>
+      <a href="#recomendaciones-programacion">Recomendaciones en programación</a>
+      <a href="#tecnologia-ingenieria">De tecnología e ingeniería</a>
+      <a href="#dibujo-tecnico">De dibujo técnico</a>
+      <a href="#otros">Otros</a>
+    </nav>
+  </main>
+
+  <!-- SUBPÁGINAS -->
+  <section class="sub" id="sobre-mi"><p>Aún por definir (Fila 1, Columna 1)</p></section>
+  <section class="sub" id="sobre-la-pagina"><p>Aún por definir (Fila 1, Columna 2)</p></section>
+  <section class="sub" id="recomendaciones-programacion"><p>Aún por definir (Fila 1, Columna 3)</p></section>
+  <section class="sub" id="tecnologia-ingenieria"><p>Aún por definir (Fila 2, Columna 1)</p></section>
+  <section class="sub" id="dibujo-tecnico"><p>Aún por definir (Fila 2, Columna 2)</p></section>
+  <section class="sub" id="otros"><p>Aún por definir (Fila 2, Columna 3)</p></section>
+
 </body>
 </html>
