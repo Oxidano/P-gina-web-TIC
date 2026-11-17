@@ -13,6 +13,9 @@
   .menu a { box-sizing: border-box; width: var(--lado); height: var(--lado); padding: 6px; display: flex; align-items: center; justify-content: center; text-align: center; text-decoration: none; font-weight: bold; font-size: calc(var(--lado) * 0.095); overflow-wrap: anywhere; color: #00088F; background: #e8f9ff; border: 2px solid #00CBFF; }
   .menu a:hover { background: #00CBFF; color: #fff; }
 
+  /* Mensaje de contraseña incorrecta */
+  #error-clave { display: none; margin: 20px auto 0; padding: 12px 20px; max-width: 500px; background: #ffe5e5; color: #b00020; border: 2px solid #b00020; font-weight: bold; }
+
   /* Subpáginas: ocultas salvo la que coincide con la dirección (#...) */
   .sub { display: none; text-align: left; }
   .sub:target { display: block; }
@@ -26,13 +29,14 @@
     <h1>Bienvenido a mi página web</h1>
     <h2>Ver en esta página:</h2>
     <nav class="menu">
-      <a href="#sobre-mi">Sobre mí</a>
+      <a href="#sobre-mi" onclick="return pedirClave(event)">Sobre mí</a>
       <a href="#sobre-la-pagina">Sobre la página</a>
       <a href="#recomendaciones-programacion">Recomendaciones en programación</a>
       <a href="#tecnologia-ingenieria">De tecnología e ingeniería</a>
       <a href="#dibujo-tecnico">De dibujo técnico</a>
       <a href="#otros">Otros</a>
     </nav>
+    <p id="error-clave">Contraseña incorrecta. No tienes acceso a esta sección.</p>
   </main>
 
   <!-- SUBPÁGINAS -->
@@ -42,6 +46,36 @@
   <section class="sub" id="tecnologia-ingenieria"><p>Aún por definir (Fila 2, Columna 1)</p></section>
   <section class="sub" id="dibujo-tecnico"><p>Aún por definir (Fila 2, Columna 2)</p></section>
   <section class="sub" id="otros"><p>Aún por definir (Fila 2, Columna 3)</p></section>
+
+<script>
+  var CLAVE = "1bach";
+  var accesoConcedido = false;
+  var aviso = document.getElementById("error-clave");
+
+  // Al pulsar "Sobre mí": pide la contraseña
+  function pedirClave(e) {
+    var intento = prompt("Introduce la contraseña para acceder a \"Sobre mí\":");
+    if (intento === CLAVE) {
+      accesoConcedido = true;
+      aviso.style.display = "none";
+      return true; // deja abrir la subpágina
+    }
+    if (intento !== null) {        // si pulsa "Cancelar" no se muestra error
+      aviso.style.display = "block";
+    }
+    return false; // bloquea el acceso
+  }
+
+  // Si alguien escribe directamente #sobre-mi en la dirección sin la contraseña, lo devuelve al inicio
+  function vigilarAcceso() {
+    if (location.hash === "#sobre-mi" && !accesoConcedido) {
+      history.replaceState(null, "", location.pathname + location.search);
+      aviso.style.display = "block";
+    }
+  }
+  window.addEventListener("hashchange", vigilarAcceso);
+  vigilarAcceso();
+</script>
 
 </body>
 </html>
