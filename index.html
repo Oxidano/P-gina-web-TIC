@@ -13,6 +13,12 @@
   .menu a { box-sizing: border-box; width: var(--lado); height: var(--lado); padding: 6px; display: flex; align-items: center; justify-content: center; text-align: center; text-decoration: none; font-weight: bold; font-size: calc(var(--lado) * 0.095); overflow-wrap: anywhere; color: #00088F; background: #e8f9ff; border: 2px solid #00CBFF; }
   .menu a:hover { background: #00CBFF; color: #fff; }
 
+  /* Imágenes de la subpágina Arduino */
+  .arduino-imagenes { display: flex; flex-wrap: wrap; justify-content: center; align-items: flex-start; gap: 24px; }
+  .arduino-imagenes figure { flex: 1 1 300px; max-width: 500px; margin: 0; text-align: center; }
+  .arduino-imagenes img { display: block; width: 100%; height: auto; }
+  .arduino-imagenes figcaption { margin-top: 8px; font-weight: bold; }
+
   /* Mensaje de contraseña incorrecta */
   #error-clave { display: none; margin: 20px auto 0; padding: 12px 20px; max-width: 500px; background: #ffe5e5; color: #b00020; border: 2px solid #b00020; font-weight: bold; }
 
@@ -41,7 +47,18 @@
 
   <!-- SUBPÁGINAS -->
   <section class="sub" id="sobre-mi"><p>Aún por definir (Fila 1, Columna 1)</p></section>
-  <section class="sub" id="arduino"><p>Aún por definir (Fila 1, Columna 2)</p></section>
+  <section class="sub" id="arduino">
+    <div class="arduino-imagenes">
+      <figure>
+        <img src="img1.png" alt="Código de Arduino en bloques">
+        <figcaption>Código en bloques</figcaption>
+      </figure>
+      <figure>
+        <img src="img2.png" alt="Código de Arduino en texto">
+        <figcaption>Código en texto</figcaption>
+      </figure>
+    </div>
+  </section>
   <section class="sub" id="recomendaciones-programacion"><p>Aún por definir (Fila 1, Columna 3)</p></section>
   <section class="sub" id="tecnologia-ingenieria"><p>Aún por definir (Fila 2, Columna 1)</p></section>
   <section class="sub" id="dibujo-tecnico"><p>Aún por definir (Fila 2, Columna 2)</p></section>
