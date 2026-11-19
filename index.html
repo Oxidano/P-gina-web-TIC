@@ -6,7 +6,7 @@
 <title>Bienvenido a mi página web</title>
 <style>
   :root { --lado: 200px; } /* Lado de cada casilla; la letra se adapta sola */
-  body { font-family: Arial, Helvetica, sans-serif; margin: 0; padding: 30px 20px; text-align: center; }
+  body { font-family: Arial, Helvetica, sans-serif; margin: 0; padding: 30px 20px; text-align: center; background-image: url("bg.jpg"); background-repeat: no-repeat; background-position: center; background-size: cover; }
   h1 { font-size: 60px; font-weight: bold; color: #00088F; margin: 0 0 10px; }
   h2 { font-size: 30px; font-weight: bold; color: #00CBFF; margin: 0 0 30px; }
   .menu { display: grid; grid-template-columns: repeat(3, var(--lado)); grid-template-rows: repeat(2, var(--lado)); gap: 10px; justify-content: center; }
@@ -22,7 +22,7 @@
   body:has(.sub:target) #inicio { display: none; }
 </style>
 </head>
-<body background="bg.jpg">
+<body>
 
   <!-- PÁGINA PRINCIPAL -->
   <main id="inicio">
